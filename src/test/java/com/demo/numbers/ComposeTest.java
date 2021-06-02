@@ -22,4 +22,20 @@ class ComposeTest {
         ).isEqualTo(2.0);
     }
 
+    @Test
+    void negative() {
+        //implementations of ((2+2) * (2-3)) / (abs(2-4))
+        assertThat(
+                new Div(
+                        new Mult(
+                                new Plus(2, 2),
+                                new Minus(2, 3)
+                        ),
+                        new Abs(
+                                new Minus(2, 4)
+                        )
+                ).toDouble()
+        ).isEqualTo(-2.0);
+    }
+
 }

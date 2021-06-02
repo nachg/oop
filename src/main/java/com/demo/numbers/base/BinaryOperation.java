@@ -24,8 +24,4 @@ public abstract class BinaryOperation implements INumber {
         this(new Number(v1), v2);
     }
 
-    @Override
-    public Double toDouble() {
-        return null;
-    }
 }

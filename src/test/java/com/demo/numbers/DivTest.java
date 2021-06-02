@@ -8,12 +8,16 @@ class DivTest {
 
     @Test
     void numberShouldBePositive() {
-        assertThat(new Div(6.3, 3).toDouble()).isEqualTo(2.1);
+        assertThat(
+                new Div(6.3, 3).toDouble()
+        ).isEqualTo(2.1);
     }
 
     @Test
     void numberShouldBeNegative() {
-        assertThat(new Div(6.3, -3).toDouble()).isEqualTo(-2.1);
+        assertThat(
+                new Div(6.3, -3).toDouble()
+        ).isEqualTo(-2.1);
     }
 
 

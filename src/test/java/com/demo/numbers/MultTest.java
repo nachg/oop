@@ -8,12 +8,16 @@ class MultTest {
 
     @Test
     void numberShouldBePositive() {
-        assertThat(new Mult(2.3, 2).toDouble()).isEqualTo(4.6);
+        assertThat(
+                new Mult(2.3, 2).toDouble()
+        ).isEqualTo(4.6);
     }
 
     @Test
     void numberShouldBeNegative() {
-        assertThat(new Mult(2.3, -2).toDouble()).isEqualTo(-4.6);
+        assertThat(
+                new Mult(2.3, -2).toDouble()
+        ).isEqualTo(-4.6);
     }
 
 
