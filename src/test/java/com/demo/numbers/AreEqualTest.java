@@ -11,6 +11,10 @@ class AreEqualTest {
         assertThat(
                 new AreEqual(3,3).toBoolean()
         ).isEqualTo(true);
+
+        assertThat(
+                new AreEqual(true,true).toBoolean()
+        ).isEqualTo(true);
     }
 
     @Test

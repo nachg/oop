@@ -2,7 +2,6 @@ package com.demo.numbers;
 
 import com.demo.numbers.base.BinaryOperation;
 import com.demo.numbers.base.INumber;
-import com.demo.numbers.base.Number;
 
 public class Minus extends BinaryOperation {
 

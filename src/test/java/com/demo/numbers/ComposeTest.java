@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ComposeTest {
 
     @Test
-    void resultShouldBepositive() {
+    void resultShouldPositive() {
         //implementations of ((2+2) * (2-1)) / (abs(2-4))
         assertThat(
                 new Div(
