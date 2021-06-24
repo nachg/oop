@@ -5,64 +5,81 @@ import com.demo.numbers.base.INumber;
 import java.util.ArrayList;
 
 public class Interpreter implements INumber {
-    private String st;
+    private String mathExpr;
+    double operand1 = 0;
+    double operand2 = 0;
+    char operator = 0;
+    Double result = 0.0;
 
     public Interpreter(String s) {
-        this.st = s;
+        this.mathExpr = s;
     }
 
-    public static void parse(String in) {
+    public void parse() {
         char[] inputString;
         String lexemeTemp = "";
-        char operator = 0;
         char sym;
         int lexemeNumb = 0;
-        int pos1 = 0;
-        int pos2 = 0;
+        int bracketPos1 = 0;
+        int bracketPos2 = 0;
         int bracketsLevel = 0;
-        ArrayList<String> lexemeArray = new ArrayList<>();
+        ArrayList<String> lexemes = new ArrayList<>();
+        ArrayList<String> lexemeType = new ArrayList<>();
 
-        inputString = deleteSpaces(in).toCharArray();
+        inputString = deleteSpaces(mathExpr).toCharArray();
 
         for (int i = 0; i < inputString.length; i++) {
             sym = inputString[i];
             if (sym == '(' & bracketsLevel == 0) {
                 bracketsLevel += 1;
-                pos1 = i + 1;
+                bracketPos1 = i + 1;
             } else if (sym == '(' & bracketsLevel != 0) {
                 bracketsLevel += 1;
             } else if (sym == ')' & bracketsLevel != 1) {
                 bracketsLevel -= 1;
             } else if (sym == ')' & bracketsLevel == 1) {
-                pos2 = i;
+                bracketPos2 = i;
                 bracketsLevel -= 1;
             } else if (Character.isDigit(sym) & bracketsLevel == 0) {
                 lexemeTemp += sym;
             } else if (isOperator(sym) & bracketsLevel == 0) {
                 operator = sym;
-                pos1 = 0;
-                pos2 = 0;
-                lexemeArray.add(lexemeNumb, lexemeTemp);
+                bracketPos1 = 0;
+                bracketPos2 = 0;
+                if (lexemeTemp != "") {
+                    lexemes.add(lexemeNumb, lexemeTemp);
+                    lexemeType.add(lexemeNumb, "Number");
+                }
                 lexemeTemp = "";
                 lexemeNumb += 1;
             }
             if (Character.isDigit(sym) & i == inputString.length - 1) {
-                lexemeArray.add(lexemeNumb, lexemeTemp);
+                lexemes.add(lexemeNumb, lexemeTemp);
+                lexemeType.add(lexemeNumb, "Number");
             }
-            if (pos2 != 0 & bracketsLevel == 0 & !isOperator(sym)) {
-                for (int j = pos1; j < pos2; j++) {
+            if (bracketPos2 != 0 & bracketsLevel == 0 & !isOperator(sym)) {
+                for (int j = bracketPos1; j < bracketPos2; j++) {
                     lexemeTemp += inputString[j];
-                    lexemeArray.add(lexemeNumb, lexemeTemp);
                 }
+                lexemes.add(lexemeNumb, lexemeTemp);
+                lexemeType.add(lexemeNumb, "Expression");
+                lexemeTemp = "";
             }
         }
+        if (lexemeType.get(0) == "Number") {
+            operand1 = Double.parseDouble(lexemes.get(0));
+        } else {
+            operand1 = (new Interpreter(lexemes.get(0)).toDouble());
+        }
+        if (lexemeType.get(1) == "Number") {
+            operand2 = Integer.parseInt(lexemes.get(1));
+        } else {
+            operand2 = (new Interpreter(lexemes.get(1)).toDouble());
+        }
 
-        System.out.println(operator);
-        System.out.println(lexemeArray.get(0));
-        System.out.println(lexemeArray.get(1));
     }
 
-    private static String deleteSpaces(String in) {
+    private String deleteSpaces(String in) {
         String temp = "";
         for (int i = 0; i < in.toCharArray().length; i++) {
             if (in.toCharArray()[i] != ' ') {
@@ -72,7 +89,7 @@ public class Interpreter implements INumber {
         return temp;
     }
 
-    public static boolean isOperator(char symbol) {
+    public boolean isOperator(char symbol) {
         if (symbol == '+' || symbol == '-' || symbol == '*' || symbol == '/') {
             return true;
         } else return false;
@@ -80,10 +97,23 @@ public class Interpreter implements INumber {
 
     @Override
     public Double toDouble() {
-        return null;
+        parse();
+        switch (operator) {
+            case '+':
+                result = (new Plus(operand1,operand2)).toDouble();
+                break;
+            case '-':
+                result = (new Minus(operand1,operand2)).toDouble();
+                break;
+            case '*':
+                result = (new Mult(operand1,operand2)).toDouble();
+                break;
+            case '/':
+                result = (new Div(operand1,operand2)).toDouble();
+                break;
+        }
+        return result;
     }
 
-    public static void main(String[] args) {
-        Interpreter.parse("(34+45)*(23+(56+45))");
-    }
+
 }
