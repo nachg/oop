@@ -27,7 +27,7 @@ public class LessThan extends CompareOperation {
     }
 
     @Override
-    public boolean toBoolean() {
+    public boolean toBoolean() throws Exception {
         if ((value1.toDouble() - value2.toDouble()) < 0) {
             return true;
         } else return false;

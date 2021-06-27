@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class PlusTest {
 
     @Test
-    void positive() {
+    void positive() throws Exception {
         assertThat(
                 new Plus(1, 1).toDouble()
         ).isEqualTo(2.0);

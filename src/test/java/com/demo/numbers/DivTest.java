@@ -7,14 +7,14 @@ import static org.assertj.core.api.Assertions.*;
 class DivTest {
 
     @Test
-    void numberShouldBePositive() {
+    void numberShouldBePositive() throws Exception {
         assertThat(
                 new Div(6.3, 3).toDouble()
         ).isEqualTo(2.1);
     }
 
     @Test
-    void numberShouldBeNegative() {
+    void numberShouldBeNegative() throws Exception {
         assertThat(
                 new Div(6.3, -3).toDouble()
         ).isEqualTo(-2.1);

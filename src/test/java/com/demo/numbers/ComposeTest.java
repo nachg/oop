@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ComposeTest {
 
     @Test
-    void resultShouldPositive() {
+    void resultShouldPositive() throws Exception {
         //implementations of ((2+2) * (2-1)) / (abs(2-4))
         assertThat(
                 new Div(
@@ -23,7 +23,7 @@ class ComposeTest {
     }
 
     @Test
-    void resultShouldBeNegative() {
+    void resultShouldBeNegative() throws Exception {
         //implementations of ((2+2) * (2-3)) / (abs(2-4))
         assertThat(
                 new Div(
@@ -39,7 +39,7 @@ class ComposeTest {
     }
 
     @Test
-    void resultShouldBeTrue() {
+    void resultShouldBeTrue() throws Exception {
         //implementations of ((2+2) * (4-3)) - (abs(2-4)) > 0 is true
         assertThat(
                 new MoreThan(
@@ -55,7 +55,7 @@ class ComposeTest {
     }
 
     @Test
-    void resultShouldBeFalse() {
+    void resultShouldBeFalse() throws Exception {
         //implementations of ((2+3) * (4-3)) - (abs(2-6)) = 0 is false
         assertThat(
                 new AreEqual(

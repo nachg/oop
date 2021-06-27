@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class AreEqualTest {
 
     @Test
-    void resultShouldBeTrue() {
+    void resultShouldBeTrue() throws Exception {
         assertThat(
                 new AreEqual(3,3).toBoolean()
         ).isEqualTo(true);
@@ -18,7 +18,7 @@ class AreEqualTest {
     }
 
     @Test
-    void resultShouldBeFalse() {
+    void resultShouldBeFalse() throws Exception {
         assertThat(
                 new AreEqual(3,2).toBoolean()
         ).isEqualTo(false);

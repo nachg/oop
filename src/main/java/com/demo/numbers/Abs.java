@@ -23,7 +23,7 @@ public class Abs extends UnaryOperation {
     }
 
     @Override
-    public Double toDouble() {
+    public Double toDouble() throws Exception {
         Double v = value.toDouble();
         if (v < 0) {
             v = v * -1;

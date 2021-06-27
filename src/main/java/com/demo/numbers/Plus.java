@@ -27,7 +27,7 @@ public class Plus extends BinaryOperation {
     }
 
     @Override
-    public Double toDouble() {
+    public Double toDouble() throws Exception {
         return value1.toDouble() + value2.toDouble();
     }
 }

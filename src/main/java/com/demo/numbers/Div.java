@@ -27,7 +27,7 @@ public class Div extends BinaryOperation {
     }
 
     @Override
-    public Double toDouble() {
-        return value1.toDouble()/ value2.toDouble();
+    public Double toDouble() throws Exception{
+        return 0.0;//value1.toDouble()/ value2.toDouble();
     }
 }

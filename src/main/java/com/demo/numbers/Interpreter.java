@@ -15,7 +15,7 @@ public class Interpreter implements INumber {
         this.mathExpr = s;
     }
 
-    public void parse() {
+    public void parse()throws Exception {
         char[] inputString;
         String lexemeTemp = "";
         char sym;
@@ -96,7 +96,7 @@ public class Interpreter implements INumber {
     }
 
     @Override
-    public Double toDouble() {
+    public Double toDouble() throws Exception {
         parse();
         switch (operator) {
             case '+':

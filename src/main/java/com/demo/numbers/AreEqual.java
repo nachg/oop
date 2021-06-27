@@ -35,7 +35,7 @@ public class AreEqual extends CompareOperation {
     }
 
     @Override
-    public boolean toBoolean() {
+    public boolean toBoolean() throws Exception {
 
         if (boolValue1==null) {
             if ((value1.toDouble() - value2.toDouble()) == 0) {
