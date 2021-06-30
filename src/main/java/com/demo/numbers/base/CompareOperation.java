@@ -3,6 +3,7 @@ package com.demo.numbers.base;
 public abstract class CompareOperation implements IBoolean {
     protected INumber value1, value2;
     protected IBoolean boolValue1, boolValue2;
+    protected String name;
 
     public CompareOperation(IBoolean v1, IBoolean v2) {
         this.boolValue1 = v1;

@@ -7,37 +7,41 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class InterpreterTest {
 
-    @Test
-    void WHENStringContainsOneOperatorAndOneArgumentTHENErrorMessageShouldBeShown() throws Exception {
-        assertThatThrownBy(() -> {
-            new Interpreter("7+").toDouble();
-        }).isInstanceOf(Exception.class)
-                .hasMessageContaining("Ошибка");
+        @Test
+    void getOperatorForTwoArgsAndOperator() throws Exception {
+        assertThat(
+                new Interpreter
+                        (new LexicalParser("2 + 1")
+                                ).getOperator()
+        ).isEqualTo("+");
     }
 
     @Test
-    void simpleNumbers() throws Exception {
+    void toDoubleForTwoArgsWithOperator() throws Exception {
         assertThat(
-                new Interpreter("7+3").toDouble()
-        ).isEqualTo(10);
-    }
-
-    @Test
-    void exprAndNumber() throws Exception {
-        assertThat(
-                new Interpreter("(5+3)*4").toDouble()
-        ).isEqualTo(32);
-
-        assertThat(
-                new Interpreter("42/(3+4)").toDouble()
-        ).isEqualTo(6);
-    }
-
-
-    @Test
-    void twoExpressions() throws Exception {
-        assertThat(
-                new Interpreter("((7+3)+10)/(2+2)").toDouble()
+                new Interpreter
+                        (new LexicalParser("7 - 2")
+                                ).toObject().toDouble()
         ).isEqualTo(5);
+
+        assertThat(
+                new Interpreter
+                        (new LexicalParser("7 + 2")
+                        ).toObject().toDouble()
+        ).isEqualTo(9);
+
+        assertThat(
+                new Interpreter
+                        (new LexicalParser("7 * 2")
+                        ).toObject().toDouble()
+        ).isEqualTo(14);
+
+        assertThat(
+                new Interpreter
+                        (new LexicalParser("7 / 2")
+                        ).toObject().toDouble()
+        ).isEqualTo(3.5);
     }
+
+
 }

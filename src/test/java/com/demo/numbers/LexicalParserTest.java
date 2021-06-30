@@ -1,9 +1,8 @@
 package com.demo.numbers;
 
-import com.demo.numbers.base.LexicalParser;
 import org.junit.jupiter.api.Test;
 
-import static com.demo.numbers.base.LexicalParser.ERROR_NO_STRING_CONTENT;
+import static com.demo.numbers.LexicalParser.ERROR_NO_STRING_CONTENT;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -45,6 +44,15 @@ public class LexicalParserTest {
     }
 
     @Test
+    void nextForTwoArgAndOperator() throws Exception {
+        LexicalParser lp = new LexicalParser("1 + 2");
+
+        assertThat(lp.next()).isEqualTo("1");
+        assertThat(lp.next()).isEqualTo("+");
+        assertThat(lp.next()).isEqualTo("2");
+    }
+
+    @Test
     void nextForTwoArgWithOuterSpaces() throws Exception {
         LexicalParser lp = new LexicalParser(" 1 2 ");
 
@@ -57,6 +65,15 @@ public class LexicalParserTest {
         LexicalParser lp = new LexicalParser("1  2");
 
         assertThat(lp.next()).isEqualTo("1");
+        assertThat(lp.next()).isEqualTo("2");
+    }
+
+    @Test
+    void nextForTwoArgWithOperator() throws Exception {
+        LexicalParser lp = new LexicalParser("1 + 2");
+
+        assertThat(lp.next()).isEqualTo("1");
+        assertThat(lp.next()).isEqualTo("+");
         assertThat(lp.next()).isEqualTo("2");
     }
 

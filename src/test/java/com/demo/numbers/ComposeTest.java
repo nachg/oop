@@ -12,7 +12,7 @@ class ComposeTest {
         assertThat(
                 new Div(
                         new Mult(
-                                new Plus(2, 2),
+                                new Interpreter(new LexicalParser("2 + 2")).toObject(),
                                 new Minus(2, 1)
                         ),
                         new Abs(

@@ -2,6 +2,7 @@ package com.demo.numbers.base;
 
 public abstract class BinaryOperation implements INumber {
     protected INumber value1, value2;
+    protected String name;
 
     public BinaryOperation(INumber v1, INumber v2) {
         this.value1 = v1;

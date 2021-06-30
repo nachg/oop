@@ -26,7 +26,16 @@ public class Minus extends BinaryOperation {
     }
 
     @Override
+    public String getName() {
+        return "-";
+    }
+
+    @Override
     public Double toDouble() throws Exception {
         return value1.toDouble() - value2.toDouble();
+    }
+
+    public INumber createNew(INumber p1, INumber p2) {
+        return new Minus(p1,p2);
     }
 }

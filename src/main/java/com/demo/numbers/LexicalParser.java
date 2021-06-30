@@ -1,4 +1,4 @@
-package com.demo.numbers.base;
+package com.demo.numbers;
 
 import java.util.ArrayList;
 
@@ -32,10 +32,5 @@ public class LexicalParser {
         return values.get(currentPosition++);
     }
 
-    public static void main(String[] args) throws Exception {
-        LexicalParser lp = new LexicalParser("    1 22  3 ");
-        while(lp.hasElement()) {
-            System.out.println(lp.next());
-        }
-    }
+
 }
