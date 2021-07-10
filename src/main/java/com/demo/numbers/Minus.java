@@ -25,6 +25,10 @@ public class Minus extends BinaryOperation {
         super(v1, v2);
     }
 
+    public Minus() {
+
+    }
+
     @Override
     public String getName() {
         return "-";

@@ -26,6 +26,10 @@ public class Div extends BinaryOperation {
         super(v1, v2);
     }
 
+    public Div() {
+
+    }
+
     @Override
     public String getName() {
         return "/";

@@ -25,6 +25,10 @@ public class Mult extends BinaryOperation {
         super(v1, v2);
     }
 
+    public Mult() {
+
+    }
+
 
     @Override
     public String getName() {

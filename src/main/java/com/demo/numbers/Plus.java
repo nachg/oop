@@ -25,6 +25,10 @@ public class Plus extends BinaryOperation {
         super(v1, v2);
     }
 
+    public Plus() {
+        super();
+    }
+
     @Override
     public String getName() {
         return "+";

@@ -25,4 +25,7 @@ public abstract class BinaryOperation implements INumber {
         this(new Number(v1), v2);
     }
 
+    public BinaryOperation() {
+
+    }
 }
