@@ -28,8 +28,8 @@ public class Abs extends UnaryOperation {
     }
 
     @Override
-    public Double toDouble() throws Exception {
-        Double v = value.toDouble();
+    public Double evaluate() throws Exception {
+        Double v = value.evaluate();
         if (v < 0) {
             v = v * -1;
         }
@@ -37,7 +37,8 @@ public class Abs extends UnaryOperation {
     }
 
     @Override
-    public INumber createNew(INumber operand1, INumber operand2) {
+    public INumber createNew(Object operand1, Object operand2) {
         return null;
     }
+
 }

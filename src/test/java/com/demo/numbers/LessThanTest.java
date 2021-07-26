@@ -9,14 +9,14 @@ class LessThanTest {
     @Test
     void resultShouldBeTrue() throws Exception {
         assertThat(
-                new LessThan(2,3).toBoolean()
+                new LessThan(2,3).evaluate()
         ).isEqualTo(true);
     }
 
     @Test
     void resultShouldBeFalse() throws Exception {
         assertThat(
-                new LessThan(3,2).toBoolean()
+                new LessThan(3,2).evaluate()
         ).isEqualTo(false);
     }
 }

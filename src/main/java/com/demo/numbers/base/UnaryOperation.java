@@ -7,4 +7,5 @@ public abstract class UnaryOperation implements INumber {
     public UnaryOperation(INumber v) {
         this.value = v;
     }
+
 }

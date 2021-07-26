@@ -2,11 +2,14 @@ package com.demo.numbers;
 
 import com.demo.numbers.base.BinaryOperation;
 import com.demo.numbers.base.INumber;
-import com.demo.numbers.base.Number;
 
 public class Div extends BinaryOperation {
 
     public Div(INumber v1, INumber v2) {
+        super(v1, v2);
+    }
+
+    public Div(Object v1, Object v2) {
         super(v1, v2);
     }
 
@@ -36,11 +39,12 @@ public class Div extends BinaryOperation {
     }
 
     @Override
-    public Double toDouble() throws Exception{
-        return value1.toDouble()/ value2.toDouble();
+    public Double evaluate() throws Exception{
+        return value1.evaluate()/value2.evaluate();
     }
 
-    public INumber createNew(INumber p1, INumber p2) {
+    @Override
+    public INumber createNew(Object p1, Object p2) {
         return new Div(p1,p2);
     }
 

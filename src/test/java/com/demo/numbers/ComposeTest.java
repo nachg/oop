@@ -12,13 +12,13 @@ class ComposeTest {
         assertThat(
                 new Div(
                         new Mult(
-                                new Interpreter(new LexicalParser("2 + 2")).toObject(),
+                                new Plus(2,2),
                                 new Minus(2, 1)
                         ),
                         new Abs(
                                 new Minus(2, 4)
                         )
-                ).toDouble()
+                ).evaluate()
         ).isEqualTo(2.0);
     }
 
@@ -34,7 +34,7 @@ class ComposeTest {
                         new Abs(
                                 new Minus(2, 4)
                         )
-                ).toDouble()
+                ).evaluate()
         ).isEqualTo(-2.0);
     }
 
@@ -50,7 +50,7 @@ class ComposeTest {
                         new Abs(
                                 new Minus(2, 4)
                         )
-                ).toBoolean()
+                ).evaluate()
         ).isEqualTo(true);
     }
 
@@ -66,7 +66,7 @@ class ComposeTest {
                         new Abs(
                                 new Minus(2, 6)
                         )
-                ).toBoolean()
+                ).evaluate()
         ).isEqualTo(false);
     }
 

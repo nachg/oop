@@ -1,7 +1,7 @@
 package com.demo.numbers;
 
-import com.demo.numbers.base.IVar;
 import com.demo.numbers.base.INumber;
+import com.demo.numbers.base.IVars;
 import com.demo.numbers.base.Number;
 
 import java.util.ArrayList;
@@ -13,9 +13,9 @@ public class Interpreter {
     private INumber expr;
     private String operator;
     private List<INumber> operators = new ArrayList<>();
-    static List<IVar> vars = new ArrayList<>();
+    private List<IVars> vars = new ArrayList<>();
 
-    public Interpreter(LexicalParser lp) throws Exception {
+    public void send(LexicalParser lp) throws Exception {
         createObjList();
         String firstLex = lp.next();
         if (isNumber(firstLex)) {
@@ -24,24 +24,23 @@ public class Interpreter {
             operand2 = new Number(stringToDouble(lp.next()));
             convertToExpr();
         } else if (isVar(firstLex)) {
-            Var var = new Var(firstLex);
             String secLex = lp.next();
             if (secLex.equals("=")) {
                 operand1 = new Number(stringToDouble(lp.next()));
                 operator = lp.next();
                 operand2 = new Number(stringToDouble(lp.next()));
                 convertToExpr();
-                var.setValue(expr);
+                NumVar var = new NumVar(firstLex, expr);
                 vars.add(var);
             } else {
                 operator = secLex;
                 String thirdLex = lp.next();
-                for (IVar v : vars) {
+                for (IVars v : vars) {
                     if (v.getName().equals(firstLex)) {
-                        operand1 = v.getValue();
+                        operand1 = (INumber) v.getValue();
                     }
                     if (v.getName().equals(thirdLex)) {
-                        operand2 = v.getValue();
+                        operand2 = (INumber) v.getValue();
                     }
                 }
                 convertToExpr();
@@ -50,7 +49,7 @@ public class Interpreter {
     }
 
     public boolean isVar(String st) {
-        if (st.toCharArray()[0] == '&') {
+        if (st.toCharArray()[0] == '$') {
             return true;
         } else return false;
     }
@@ -84,7 +83,7 @@ public class Interpreter {
         return expr;
     }
 
-    public Double toDouble() throws Exception {
-        return expr.toDouble();
+    public Double evaluate() throws Exception {
+        return expr.evaluate();
     }
 }

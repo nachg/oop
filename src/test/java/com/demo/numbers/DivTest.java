@@ -9,14 +9,14 @@ class DivTest {
     @Test
     void numberShouldBePositive() throws Exception {
         assertThat(
-                new Div(6.3, 3).toDouble()
+                new Div(6.3, 3).evaluate()
         ).isEqualTo(2.1);
     }
 
     @Test
     void numberShouldBeNegative() throws Exception {
         assertThat(
-                new Div(6.3, -3).toDouble()
+                new Div(6.3, -3).evaluate()
         ).isEqualTo(-2.1);
     }
 

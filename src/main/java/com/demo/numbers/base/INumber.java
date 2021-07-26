@@ -1,7 +1,9 @@
 package com.demo.numbers.base;
 
-public interface INumber {
+public interface INumber extends ITypes {
     String getName();
-    Double toDouble() throws Exception;
-    INumber createNew(INumber operand1, INumber operand2);
+    @Override
+    Double evaluate() throws Exception;
+    @Override
+    INumber createNew(Object operand1, Object operand2);
 }

@@ -1,7 +1,5 @@
 package com.demo.numbers;
 
-import com.demo.numbers.base.INumber;
-
 import java.util.ArrayList;
 
 public class Interp {
@@ -100,16 +98,16 @@ public class Interp {
         parse();
         switch (operator) {
             case '+':
-                result = (new Plus(operand1,operand2)).toDouble();
+                result = (new Plus(operand1,operand2)).evaluate();
                 break;
             case '-':
-                result = (new Minus(operand1,operand2)).toDouble();
+                result = (new Minus(operand1,operand2)).evaluate();
                 break;
             case '*':
-                result = (new Mult(operand1,operand2)).toDouble();
+                result = (new Mult(operand1,operand2)).evaluate();
                 break;
             case '/':
-                result = (new Div(operand1,operand2)).toDouble();
+                result = (new Div(operand1,operand2)).evaluate();
                 break;
         }
         return result;

@@ -9,14 +9,14 @@ class MoreThanTest {
     @Test
     void resultShouldBeTrue() throws Exception {
         assertThat(
-                new MoreThan(3,2).toBoolean()
+                new MoreThan(3,2).evaluate()
         ).isEqualTo(true);
     }
 
     @Test
     void resultShouldBeFalse() throws Exception {
         assertThat(
-                new MoreThan(2,3).toBoolean()
+                new MoreThan(2,3).evaluate()
         ).isEqualTo(false);
     }
 }

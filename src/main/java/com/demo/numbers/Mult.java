@@ -9,6 +9,10 @@ public class Mult extends BinaryOperation {
         super(v1, v2);
     }
 
+    public Mult(Object v1, Object v2) {
+        super(v1, v2);
+    }
+
     public Mult(double v1, double v2) {
         super(v1, v2);
     }
@@ -36,11 +40,12 @@ public class Mult extends BinaryOperation {
     }
 
     @Override
-    public Double toDouble() throws Exception {
-        return value1.toDouble() * value2.toDouble();
+    public Double evaluate() throws Exception {
+        return value1.evaluate() * value2.evaluate();
     }
 
-    public INumber createNew(INumber p1, INumber p2) {
+    @Override
+    public INumber createNew(Object p1, Object p2) {
         return new Mult(p1,p2);
     }
 }

@@ -8,7 +8,9 @@ public class Bool implements IBoolean {
     }
 
     @Override
-    public boolean toBoolean() {
+    public Boolean evaluate() {
         return boolValue;
     }
+
+
 }

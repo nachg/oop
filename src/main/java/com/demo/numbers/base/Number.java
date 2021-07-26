@@ -11,14 +11,14 @@ public class Number implements INumber {
     public String getName() {
         return null;
     }
-
     @Override
-    public Double toDouble() {
+    public Double evaluate() {
         return value;
     }
 
     @Override
-    public INumber createNew(INumber operand1, INumber operand2) {
+    public INumber createNew(Object operand1, Object operand2) {
         return null;
     }
+
 }

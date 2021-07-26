@@ -9,18 +9,18 @@ class AreEqualTest {
     @Test
     void resultShouldBeTrue() throws Exception {
         assertThat(
-                new AreEqual(3,3).toBoolean()
+                new AreEqual(3,3).evaluate()
         ).isEqualTo(true);
 
         assertThat(
-                new AreEqual(true,true).toBoolean()
+                new AreEqual(true,true).evaluate()
         ).isEqualTo(true);
     }
 
     @Test
     void resultShouldBeFalse() throws Exception {
         assertThat(
-                new AreEqual(3,2).toBoolean()
+                new AreEqual(3,2).evaluate()
         ).isEqualTo(false);
     }
 }

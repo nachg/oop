@@ -35,14 +35,14 @@ public class AreEqual extends CompareOperation {
     }
 
     @Override
-    public boolean toBoolean() throws Exception {
+    public Boolean evaluate() throws Exception {
 
         if (boolValue1==null) {
-            if ((value1.toDouble() - value2.toDouble()) == 0) {
+            if ((value1.evaluate() - value2.evaluate()) == 0) {
                 return true;
             } else return false;
         } else {
-            if (boolValue1.toBoolean() == boolValue2.toBoolean()) {
+            if (boolValue1.evaluate() == boolValue2.evaluate()) {
                 return true;
             } else return false;
         }

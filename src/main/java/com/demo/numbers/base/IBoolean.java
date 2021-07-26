@@ -1,5 +1,6 @@
 package com.demo.numbers.base;
 
-public interface IBoolean {
-    boolean toBoolean() throws Exception;
+public interface IBoolean extends Evaluable {
+    @Override
+    Boolean evaluate() throws Exception;
 }

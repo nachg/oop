@@ -9,6 +9,10 @@ public abstract class BinaryOperation implements INumber {
         this.value2 = v2;
     }
 
+    public BinaryOperation(Object v1, Object v2) {
+        this((INumber) v1, (INumber) v2);
+    }
+
     public BinaryOperation(double v1, double v2) {
         this(new Number(v1), new Number(v2));
     }
@@ -26,6 +30,7 @@ public abstract class BinaryOperation implements INumber {
     }
 
     public BinaryOperation() {
-
     }
+
+
 }
