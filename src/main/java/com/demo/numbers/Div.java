@@ -44,8 +44,8 @@ public class Div extends BinaryOperation {
     }
 
     @Override
-    public INumber createNew(Object p1, Object p2) {
-        return new Div(p1,p2);
+    public INumber createNew(Object[] operands) {
+        return new Div(operands[0],operands[1]);
     }
 
 }

@@ -5,5 +5,5 @@ public interface INumber extends ITypes {
     @Override
     Double evaluate() throws Exception;
     @Override
-    INumber createNew(Object operand1, Object operand2);
+    INumber createNew(Object... operands);
 }

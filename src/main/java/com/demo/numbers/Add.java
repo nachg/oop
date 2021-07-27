@@ -31,8 +31,8 @@ public class Add implements IString {
     }
 
     @Override
-    public IString createNew(Object p1, Object p2) {
-        return new Add(p1,p2);
+    public IString createNew(Object[] operands) {
+        return new Add(operands[0],operands[1]);
     }
 
     @Override

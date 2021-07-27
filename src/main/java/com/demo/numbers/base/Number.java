@@ -17,8 +17,8 @@ public class Number implements INumber {
     }
 
     @Override
-    public INumber createNew(Object operand1, Object operand2) {
-        return null;
+    public INumber createNew(Object[] operand) {
+        return new Number((Double) operand[0]);
     }
 
 }

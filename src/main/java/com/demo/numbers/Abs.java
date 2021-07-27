@@ -37,8 +37,8 @@ public class Abs extends UnaryOperation {
     }
 
     @Override
-    public INumber createNew(Object operand1, Object operand2) {
-        return null;
+    public INumber createNew(Object[] operands) {
+        return new Abs((INumber) operands[0]);
     }
 
 }

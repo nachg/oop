@@ -44,7 +44,7 @@ public class Minus extends BinaryOperation {
     }
 
     @Override
-    public INumber createNew(Object p1, Object p2) {
-        return new Minus(p1,p2);
+    public INumber createNew(Object[] operands) {
+        return new Minus(operands[0],operands[1]);
     }
 }

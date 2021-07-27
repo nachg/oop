@@ -12,6 +12,7 @@ public class Interpreter {
     private INumber operand2;
     private INumber expr;
     private String operator;
+    private String tempValue;
     private List<INumber> operators = new ArrayList<>();
     private List<IVars> vars = new ArrayList<>();
 
@@ -26,7 +27,8 @@ public class Interpreter {
         } else if (isVar(firstLex)) {
             String secLex = lp.next();
             if (secLex.equals("=")) {
-                operand1 = new Number(stringToDouble(lp.next()));
+                tempValue = lp.next();
+                operand1 = new Number(stringToDouble(tempValue));
                 operator = lp.next();
                 operand2 = new Number(stringToDouble(lp.next()));
                 convertToExpr();

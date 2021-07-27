@@ -8,5 +8,5 @@ public interface IString extends ITypes {
     String getName();
 
     @Override
-    ITypes createNew(Object operand1, Object operand2);
+    ITypes createNew(Object[] operands);
 }

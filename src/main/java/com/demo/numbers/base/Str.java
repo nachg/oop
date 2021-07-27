@@ -1,5 +1,7 @@
 package com.demo.numbers.base;
 
+import com.demo.numbers.Add;
+
 public class Str implements IString {
     private String strValue;
 
@@ -18,8 +20,8 @@ public class Str implements IString {
     }
 
     @Override
-    public ITypes createNew(Object operand1, Object operand2) {
-        return null;
+    public IString createNew(Object[] operands) {
+        return new Str((String) operands[0]);
     }
 
 }
