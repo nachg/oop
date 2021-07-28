@@ -8,7 +8,17 @@ public class Number implements INumber {
     }
 
     @Override
-    public Double toDouble() {
+    public String getName() {
+        return null;
+    }
+    @Override
+    public Double evaluate() {
         return value;
     }
+
+    @Override
+    public INumber createNew(Object[] operand) {
+        return new Number((Double) operand[0]);
+    }
+
 }

@@ -23,11 +23,22 @@ public class Abs extends UnaryOperation {
     }
 
     @Override
-    public Double toDouble() {
-        Double v = value.toDouble();
-        if(v < 0) {
+    public String getName() {
+        return "Abs";
+    }
+
+    @Override
+    public Double evaluate() throws Exception {
+        Double v = value.evaluate();
+        if (v < 0) {
             v = v * -1;
         }
         return v;
     }
+
+    @Override
+    public INumber createNew(Object[] operands) {
+        return new Abs((INumber) operands[0]);
+    }
+
 }

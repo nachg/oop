@@ -4,13 +4,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class MinusTest {
-
+class AddTest {
     @Test
-    void positive() throws Exception {
+    void evaluateForTwoStrings() throws Exception {
         assertThat(
-                new Minus(3, 1).evaluate()
-        ).isEqualTo(2.0);
+                new Add("abc", "def").evaluate()
+        ).isEqualTo("abcdef");
     }
 
 }

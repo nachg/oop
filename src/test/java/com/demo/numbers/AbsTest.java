@@ -8,25 +8,25 @@ import static org.assertj.core.api.Assertions.assertThat;
 class AbsTest {
 
     @Test
-    void positive() {
+    void positive() throws Exception {
         assertThat(
-                new Abs(2).toDouble()
+                new Abs(2).evaluate()
         ).isEqualTo(2.0);
     }
 
     @Test
-    void negative() {
+    void negative() throws Exception {
         assertThat(
-                new Abs(-2).toDouble()
+                new Abs(-2).evaluate()
         ).isEqualTo(2.0);
     }
 
     @Test
-    void composed() {
+    void composed() throws Exception {
         assertThat(
                 new Abs(
                         new Abs(-2)
-                ).toDouble()
+                ).evaluate()
         ).isEqualTo(2.0);
     }
 }
