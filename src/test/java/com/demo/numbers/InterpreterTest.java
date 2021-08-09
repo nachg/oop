@@ -10,21 +10,11 @@ class InterpreterTest {
 
     @Test
     void toDoubleForTwoArgsWithOperator() throws Exception {
-        Interpreter interpreter = new Interpreter();
-        interpreter.send(new LexicalParser("7 - 2"));
-        assertThat(
-                interpreter.evaluate()
-        ).isEqualTo(5);
 
     }
 
     @Test
     void toDoubleForOneVar() throws Exception {
-        Interpreter interpreter = new Interpreter();
-        interpreter.send(new LexicalParser("$A = 7 - 2"));
-        assertThat(
-                interpreter.evaluate()
-        ).isEqualTo(5);
 
     }
 
@@ -32,9 +22,9 @@ class InterpreterTest {
     void toDoubleForMultOfTwoVars() throws Exception {
         Interpreter interpreter = new Interpreter();
 
-        interpreter.send(new LexicalParser("$A = 7 - 2"));
-        interpreter.send(new LexicalParser("$B = 5 + 2"));
-        interpreter.send(new LexicalParser("$B * $A"));
+        interpreter.addLine(new SyntaxParser(new LexicalParser("$A = 7 - 2")));
+        interpreter.addLine(new SyntaxParser(new LexicalParser("$B = 5 + 2")));
+        interpreter.addLine(new SyntaxParser(new LexicalParser("$B * $A")));
         assertThat(
                 interpreter.evaluate()
         ).isEqualTo(35);

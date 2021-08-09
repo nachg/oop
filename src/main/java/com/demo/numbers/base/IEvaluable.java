@@ -1,5 +1,5 @@
 package com.demo.numbers.base;
 
-public interface Evaluable {
+public interface IEvaluable {
    Object evaluate() throws Exception;
 }

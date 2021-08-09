@@ -9,12 +9,9 @@ public class LexicalParser {
     private int currentPosition = 0;
 
     public LexicalParser(String value) {
-        //Разбиваем строку на подстроки
         String[] res = value.trim().split(" ");
-
-        //исключаем из результирующего массива пустые строки
-        for(String it: res) {
-            if(!it.trim().isEmpty()) {
+        for (String it : res) {
+            if (!it.trim().isEmpty()) {
                 values.add(it);
             }
         }
@@ -25,10 +22,9 @@ public class LexicalParser {
     }
 
     public String next() throws Exception {
-        if(!hasElement()) {
+        if (!hasElement()) {
             throw new Exception(ERROR_NO_STRING_CONTENT);
         }
-
         return values.get(currentPosition++);
     }
 
